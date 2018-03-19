@@ -40,10 +40,12 @@
 	        <tr>
 	            <td class="columnTitle">生产厂家：</td>
 	            <td class="tableContent">
-	            	 <s:select name="factory.id" list="factoryList" 
-	            				onchange="setFactoryName(this.options[this.selectedIndex].text);"
-	            				listKey="id" listValue="factoryName" 
-	            				headerKey="" headerValue="--请选择--"/>
+	            <select name="factory.id">
+	            		<option>--请选择--</option>
+	            		<c:forEach items="${factoryList}" var="factory">
+	            			<option value="${factory.id}">${factory.factoryName}</option>
+	            		</c:forEach>
+	            	</select>
 	            				
 	            	<input type="hidden" id="factoryName" name="factoryName" value=""/>
 	            </td>
@@ -123,9 +125,9 @@
 		<td>${o.price}</td>
 		<td>${o.amount}</td>
 		<td>
-			<a href="contractProductAction_toupdate.action?id=${o.id}">[修改]</a>
-			<a href="contractProductAction_delete.action?id=${o.id}&contract.id=${o.contract.id}">[删除]</a>
-			<a href="extCproductAction_tocreate.action?contractProduct.contract.id=${o.contract.id}&contractProduct.id=${o.id}">[附件]</a>
+			<a href="${ctx}/contractProduct/toupdate.action?id=${o.id}">[修改]</a>
+			<a href="${ctx}/contractProduct/delete.action?id=${o.id}&contract.id=${o.contract.id}">[删除]</a>
+			<a href="${ctx}/extCproduct/tocreate.action?contractProduct.contract.id=${o.contract.id}&contractProduct.id=${o.id}">[附件]</a>
 		</td>
 	</tr>
 	

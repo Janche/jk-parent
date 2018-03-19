@@ -91,7 +91,7 @@
 		<td>${o.totalAmount}</td>
 		<td><c:if test="${o.state==0}">草稿</c:if>
 		<c:if test="${o.state==1}"><font color="green">已上报</font></c:if></td>
-		<td><a href="${ctx }/cargo/contractProduct/tocreate?contract.id=${o.id}">[货物]</a></td>
+		<td><a href="${ctx }/contractProduct/tocreate?contract.id=${o.id}">[货物]</a></td>
 	</tr>
 	</c:forEach>
 	

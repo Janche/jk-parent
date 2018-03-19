@@ -15,8 +15,7 @@ import cn.itcast.service.RoleService;
 import cn.itcast.util.Page;
 
 /**
- * 部门管理的Action
- * 
+ * 合同处理的controller
  * @author LR-PC
  */
 @Controller

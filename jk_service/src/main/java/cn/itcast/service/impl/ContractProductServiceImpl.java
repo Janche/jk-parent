@@ -3,6 +3,7 @@ package cn.itcast.service.impl;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.Resource;
 
@@ -10,7 +11,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import cn.itcast.dao.BaseDao;
+import cn.itcast.domain.Contract;
 import cn.itcast.domain.ContractProduct;
+import cn.itcast.domain.ExtCproduct;
 import cn.itcast.service.ContractProductService;
 import cn.itcast.util.Page;
 @Service
@@ -60,6 +63,23 @@ public class ContractProductServiceImpl implements ContractProductService {
 		for (Serializable id : ids) {
 			this.deleteById(ContractProduct.class, id);
 		}
+	}
+
+	@Override
+	public void delete(Class<ContractProduct> entityClass, ContractProduct contractProduct) {
+		ContractProduct product = baseDao.get(ContractProduct.class, contractProduct.getId());
+		Set<ExtCproduct> extCproducts = product.getExtCproducts();
+		Contract contract = baseDao.get(Contract.class, product.getContract().getId());
+		// 减去附件的金额
+		for (ExtCproduct extCproduct : extCproducts) {
+			contract.setTotalAmount(contract.getTotalAmount()-extCproduct.getAmount());
+		}
+		// 减去货物的金额
+		contract.setTotalAmount(contract.getTotalAmount()-product.getAmount());
+		// 保存购销合同的金额修改
+		baseDao.saveOrUpdate(contract);
+		// 级联删除附件   配置文件加了cascade
+		baseDao.deleteById(ContractProduct.class, product.getId());
 	}
 
 
