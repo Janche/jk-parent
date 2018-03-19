@@ -10,9 +10,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import cn.itcast.dao.BaseDao;
+import cn.itcast.domain.Contract;
 import cn.itcast.domain.ExtCproduct;
 import cn.itcast.service.ExtCproductService;
 import cn.itcast.util.Page;
+import cn.itcast.util.UtilFuns;
 @Service
 @Transactional
 public class ExtCproductServiceImpl implements ExtCproductService {
@@ -39,7 +41,32 @@ public class ExtCproductServiceImpl implements ExtCproductService {
 
 	@Override
 	public void saveOrUpdate(ExtCproduct entity) {
-		// 新增
+		double amount = 0d;
+		if (UtilFuns.isEmpty(entity.getId())) {
+			// 新增
+			if (UtilFuns.isNotEmpty(entity.getPrice())) {
+				amount = entity.getPrice() * entity.getCnumber();  // 货物总金额
+				entity.setAmount(amount);
+			}
+			// 修改购销合同的总金额
+			Contract contract = baseDao.get(Contract.class, entity.getContractProduct().getContract().getId());
+			contract.setTotalAmount(contract.getTotalAmount() + amount);
+			// 保存购销合同的总金额
+			baseDao.saveOrUpdate(contract);
+		} else {
+			// 取出货物原有总金额
+			double oldAmount = entity.getAmount();
+			if (UtilFuns.isNotEmpty(entity.getPrice())) {
+				amount = entity.getPrice() * entity.getCnumber(); // 货物总金额
+				entity.setAmount(amount);
+			}
+			// 修改购销合同的总金额
+			Contract contract = baseDao.get(Contract.class, entity.getContractProduct().getContract().getId());
+			contract.setTotalAmount(contract.getTotalAmount() - oldAmount + amount);
+			// 保存购销合同的总金额
+			baseDao.saveOrUpdate(contract);
+		}
+
 		baseDao.saveOrUpdate(entity);
 	}
 

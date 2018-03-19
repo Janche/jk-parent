@@ -25,9 +25,6 @@ public class ContractController {
 	@Resource
 	private ContractService contractService;
 
-	@Resource
-	private RoleService roleService;
-
 	/**
 	 * 分页查询
 	 */

@@ -14,7 +14,7 @@
 
 <body>
 <form name="icform" method="post">
-	<input type="hidden" name="contract.id" value="${contract.id}"/>
+	<input type="hidden" name="contract.id" value="${contractProduct.contract.id}"/>
 
 <div id="menubar">
 <div id="middleMenubar">

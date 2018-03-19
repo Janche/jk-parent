@@ -29,9 +29,6 @@ public class ContractProductController {
 	private ContractProductService contractProductService;
 
 	@Resource
-	private RoleService roleService;
-
-	@Resource
 	private FactoryService factoryService;
 
 	/**

@@ -16,6 +16,8 @@ import cn.itcast.domain.ContractProduct;
 import cn.itcast.domain.ExtCproduct;
 import cn.itcast.service.ContractProductService;
 import cn.itcast.util.Page;
+import cn.itcast.util.UtilFuns;
+
 @Service
 @Transactional
 public class ContractProductServiceImpl implements ContractProductService {
@@ -35,14 +37,40 @@ public class ContractProductServiceImpl implements ContractProductService {
 	}
 
 	@Override
-	public Page<ContractProduct> findPage(String hql, Page<ContractProduct> page, Class<ContractProduct> entityClass, Object[] params) {
+	public Page<ContractProduct> findPage(String hql, Page<ContractProduct> page, Class<ContractProduct> entityClass,
+			Object[] params) {
 		// TODO Auto-generated method stub
 		return baseDao.findPage(hql, page, entityClass, params);
 	}
 
 	@Override
 	public void saveOrUpdate(ContractProduct entity) {
-		// 新增
+		double amount = 0d;
+		if (UtilFuns.isEmpty(entity.getId())) {
+			// 新增
+			if (UtilFuns.isNotEmpty(entity.getPrice())) {
+				amount = entity.getPrice() * entity.getCnumber();  // 货物总金额
+				entity.setAmount(amount);
+			}
+			// 修改购销合同的总金额
+			Contract contract = baseDao.get(Contract.class, entity.getContract().getId());
+			contract.setTotalAmount(contract.getTotalAmount() + amount);
+			// 保存购销合同的总金额
+			baseDao.saveOrUpdate(contract);
+		} else {
+			// 取出货物原有总金额
+			double oldAmount = entity.getAmount();
+			if (UtilFuns.isNotEmpty(entity.getPrice())) {
+				amount = entity.getPrice() * entity.getCnumber(); // 货物总金额
+				entity.setAmount(amount);
+			}
+			// 修改购销合同的总金额
+			Contract contract = baseDao.get(Contract.class, entity.getContract().getId());
+			contract.setTotalAmount(contract.getTotalAmount() - oldAmount + amount);
+			// 保存购销合同的总金额
+			baseDao.saveOrUpdate(contract);
+		}
+
 		baseDao.saveOrUpdate(entity);
 	}
 
@@ -54,8 +82,8 @@ public class ContractProductServiceImpl implements ContractProductService {
 
 	@Override
 	public void deleteById(Class<ContractProduct> entityClass, Serializable id) {
-		
-		baseDao.deleteById(entityClass, id);	// 删除模块信息
+
+		baseDao.deleteById(entityClass, id); // 删除模块信息
 	}
 
 	@Override
@@ -72,15 +100,14 @@ public class ContractProductServiceImpl implements ContractProductService {
 		Contract contract = baseDao.get(Contract.class, product.getContract().getId());
 		// 减去附件的金额
 		for (ExtCproduct extCproduct : extCproducts) {
-			contract.setTotalAmount(contract.getTotalAmount()-extCproduct.getAmount());
+			contract.setTotalAmount(contract.getTotalAmount() - extCproduct.getAmount());
 		}
 		// 减去货物的金额
-		contract.setTotalAmount(contract.getTotalAmount()-product.getAmount());
+		contract.setTotalAmount(contract.getTotalAmount() - product.getAmount());
 		// 保存购销合同的金额修改
 		baseDao.saveOrUpdate(contract);
-		// 级联删除附件   配置文件加了cascade
+		// 级联删除附件 配置文件加了cascade
 		baseDao.deleteById(ContractProduct.class, product.getId());
 	}
-
 
 }

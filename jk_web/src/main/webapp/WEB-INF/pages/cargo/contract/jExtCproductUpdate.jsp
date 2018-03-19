@@ -13,9 +13,9 @@
 
 <body>
 <form name="icform" method="post">
-	<input type="text" name="id" value="${extCproduct.id}"/>
-	<input type="text" name="contractProduct.contract.id" value="${extCproduct.contractProduct.contract.id}"/>
-	<input type="text" name="contractProduct.id" value="${extCproduct.contractProduct.id}"/>
+	<input type="hidden" name="id" value="${extCproduct.id}"/>
+	<input type="hidden" name="contractProduct.contract.id" value="${extCproduct.contractProduct.contract.id}"/>
+	<input type="hidden" name="contractProduct.id" value="${extCproduct.contractProduct.id}"/>
 	
 	<input type="hidden" name="amount" value="${extCproduct.amount }"/>
 <div id="menubar">
@@ -43,11 +43,18 @@
 	        <tr>
 	            <td class="columnTitle">生产厂家：</td>
 	            <td class="tableContent">
-	            	<s:select name="factory.id" list="factoryList" 
-	            				listKey="id" listValue="factoryName" 
-	            				onchange="setFactoryName(this.options[this.selectedIndex].text);"
-	            				headerKey="" headerValue="--请选择--"/>
-	            	<input type="hidden" id="factoryName" name="factoryName" value=""/>
+	            
+	             <select name="factory.id">
+						<c:forEach items="${factoryList}" var="factory">
+							<c:if test="${extCproduct.contractProduct.factory.id == factory.id }">
+								<option selected="selected" value="${factory.id}">${factory.factoryName}</option>
+							</c:if>
+							<c:if test="${extCproduct.contractProduct.factory.id != factory.id }">
+								<option value="${factory.id}">${factory.factoryName}</option>
+							</c:if>
+						</c:forEach>
+					</select>
+	            	
 	            </td>
 	            <td class="columnTitle">货号：</td>
 	            <td class="tableContentAuto"><input type="text" name="productNo" value="${extCproduct.productNo}"/></td>

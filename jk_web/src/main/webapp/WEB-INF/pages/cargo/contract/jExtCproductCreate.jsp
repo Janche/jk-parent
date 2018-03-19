@@ -24,7 +24,7 @@
 <div id="innerMenubar">
   <div id="navMenubar">
 <ul>
-<li id="save"><a href="#" onclick="formSubmit('${ctx}/extCproductAction_insert','_self');this.blur();">保存</a></li>
+<li id="save"><a href="#" onclick="formSubmit('${ctx}/extCproduct/insert','_self');this.blur();">保存</a></li>
 <li id="back"><a href="#" onclick="history.go(-1);">返回</a></li>
 </ul>
   </div>
@@ -37,17 +37,17 @@
    新增附件
   </div> 
   
-
- 
     <div>
 		<table class="commonTable" cellspacing="1">
 	        <tr>
 	            <td class="columnTitle">生产厂家：</td>
 	            <td class="tableContent">
-	            	<s:select name="factory.id" list="factoryList" 
-	            				onchange="setFactoryName(this.options[this.selectedIndex].text);"
-	            				listKey="id" listValue="factoryName" 
-	            				headerKey="" headerValue="--请选择--"/>
+	            <select name="factory.id">
+	            		<option>--请选择--</option>
+	            		<c:forEach items="${factoryList}" var="factory">
+	            			<option value="${factory.id}">${factory.factoryName}</option>
+	            		</c:forEach>
+	            	</select>
 	            	<input type="hidden" id="factoryName" name="factoryName" value=""/>
 	            </td>
 	            <td class="columnTitle">货号：</td>
@@ -122,8 +122,8 @@
 		<td>${o.price}</td>
 		<td>${o.amount}</td>
 		<td>
-			<a href="extCproductAction_toupdate.action?id=${o.id}">[修改]</a>
-			<a href="extCproductAction_delete.action?id=${o.id}&contractProduct.id=${o.contractProduct.id}&contractProduct.contract.id=${contractProduct.contract.id}">[删除]</a>
+			<a href="${ctx}/extCproduct/toupdate.action?id=${o.id}">[修改]</a>
+			<a href="${ctx}/extCproduct/delete.action?id=${o.id}&contractProduct.id=${o.contractProduct.id}&contractProduct.contract.id=${contractProduct.contract.id}">[删除]</a>
 		</td>
 	</tr>
 	</c:forEach>
