@@ -26,7 +26,7 @@
 	 <!--  private Set<Module> modules = new HashSet<Module>(0);//角色与模块    多对多 -->
 	 <set name="modules" table="ROLE_MODULE_P">
 	 	<key column="ROLE_ID"></key>
-	 	<many-to-many class="Module" column="MODULE_ID" order-by="ORDER_NO"></many-to-many>
+	 	<many-to-many lazy="false" class="Module" column="MODULE_ID" order-by="ORDER_NO"></many-to-many>
 	 </set>
 	 
 	 <!-- private Set<Dictionary> dicts = new HashSet<Dictionary>(0); -->

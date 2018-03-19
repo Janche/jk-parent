@@ -20,8 +20,6 @@ import cn.itcast.util.Page;
 @RequestMapping("/dept")
 public class DeptController {
 	
-	private static final long serialVersionUID = 1L;
-	
 	// 注入DeptService
 	@Resource
 	private DeptService deptService;

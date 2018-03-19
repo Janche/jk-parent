@@ -21,8 +21,6 @@ import cn.itcast.util.UtilFuns;
 @RequestMapping("/")
 public class LoginController {
 	
-	private static final long serialVersionUID = 1L;
-
 	//SSH传统登录方式
 	@RequestMapping("/login")
 	public String login(HttpSession session, HttpServletRequest request, String username, String password) throws Exception {

@@ -5,10 +5,11 @@ import java.util.Set;
 
 /**
  * 角色
- * @author Administrator
+ * @author LR
  *
  */
 public class Module extends BaseEntity {
+	private static final long serialVersionUID = 1L;
 	private String id;
 	private Set<Role> roles = new HashSet<Role>(0);//模块与角色   多对多
 	private Set<Dictionary> dicts = new HashSet<Dictionary>(0); // 模块与操作权限  多对多

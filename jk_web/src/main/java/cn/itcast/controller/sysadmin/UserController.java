@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import cn.itcast.domain.Dept;
 import cn.itcast.domain.Role;
 import cn.itcast.domain.User;
-import cn.itcast.domain.Userinfo;
 import cn.itcast.service.DeptService;
 import cn.itcast.service.RoleService;
 import cn.itcast.service.UserService;

@@ -22,14 +22,14 @@
         <div class="panel-header">
         <div class="panel-title">权限管理</div>
         <div class="panel-content">
-			  <ul>
+			  <%-- <ul>
 				<li><a href="${ctx}/dept/list.action" onclick="linkHighlighted(this)" target="main" id="aa_1">部门管理</a></li>
 				<li><a href="${ctx}/user/list" onclick="linkHighlighted(this)" target="main" id="aa_1">用户管理</a></li>
 				<li><a href="${ctx}/role/list" onclick="linkHighlighted(this)" target="main" id="aa_1">角色管理</a></li>
 				<li><a href="${ctx}/module/list" onclick="linkHighlighted(this)" target="main" id="aa_1">模块管理</a></li>
-			</ul>   
+			</ul> --%>   
 			<!-- 引入动态的菜单生成 -->
-			<%-- <%@include file="../leftmenu.jsp" %>   --%>
+			<%@include file="../leftmenu.jsp" %>  
         </div>
         </div>
     </div>

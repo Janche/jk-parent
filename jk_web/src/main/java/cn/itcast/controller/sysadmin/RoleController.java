@@ -13,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import cn.itcast.domain.DictAndModule;
-import cn.itcast.domain.Dictionary;
 import cn.itcast.domain.Module;
 import cn.itcast.domain.Role;
 import cn.itcast.exception.SysException;

@@ -26,5 +26,12 @@
 		<mapping resource="cn/itcast/domain/Module.hbm.xml"></mapping>
 		<mapping resource="cn/itcast/domain/Dictionary.hbm.xml"></mapping>
 		<mapping resource="cn/itcast/domain/DictAndModule.hbm.xml"></mapping>
+		
+		<!-- 购销合同 -->
+		<mapping resource="cn/itcast/domain/Contract.hbm.xml"></mapping>
+		<mapping resource="cn/itcast/domain/ContractProduct.hbm.xml"></mapping>
+		<mapping resource="cn/itcast/domain/Factory.hbm.xml"></mapping>
+		<mapping resource="cn/itcast/domain/ExtCproduct.hbm.xml"></mapping>
+		
 	</session-factory>
 	</hibernate-configuration>

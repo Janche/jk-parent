@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import javax.annotation.Resource;
-
 import org.apache.log4j.Logger;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -17,7 +15,6 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import cn.itcast.domain.DictAndModule;
@@ -28,7 +25,6 @@ import cn.itcast.domain.User;
 import cn.itcast.service.DictAndModuleService;
 import cn.itcast.service.DictService;
 import cn.itcast.service.UserService;
-
 public class AuthRealm extends AuthorizingRealm{
 	private static Logger log = Logger.getLogger(AuthRealm.class);
 	@Autowired
@@ -62,7 +58,7 @@ public class AuthRealm extends AuthorizingRealm{
 				}
 			}
 		}
-		//System.out.println(list);
+		System.out.println(list);
 		SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
 		info.addStringPermissions(list);
 		

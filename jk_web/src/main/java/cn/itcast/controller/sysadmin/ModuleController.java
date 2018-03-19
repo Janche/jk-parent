@@ -23,8 +23,6 @@ import cn.itcast.util.Page;
 @RequestMapping("/module")
 public class ModuleController {
 
-	private static final long serialVersionUID = 1L;
-
 
 	@Resource
 	private ModuleService moduleService;

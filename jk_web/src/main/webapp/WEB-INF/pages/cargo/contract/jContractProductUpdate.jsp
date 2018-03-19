@@ -14,15 +14,15 @@
 
 <body>
 <form name="icform" method="post">
-	<input type="hidden" name="id" value="${id}"/>
-	<input type="hidden" name="contract.id" value="${contract.id}"/>
+	<input type="hidden" name="id" value="${contractProduct.id}"/>
+	<input type="hidden" name="contract.id" value="${contractProduct.contract.id}"/>
 
 <div id="menubar">
 <div id="middleMenubar">
 <div id="innerMenubar">
   <div id="navMenubar">
 <ul>
-<li id="save"><a href="#" onclick="formSubmit('contractProductAction_update','_self');this.blur();">保存</a></li>
+<li id="save"><a href="#" onclick="formSubmit('${ctx}/contractProduct/update','_self');this.blur();">保存</a></li>
 <li id="back"><a href="#" onclick="history.go(-1);">返回</a></li>
 </ul>
   </div>
@@ -45,43 +45,43 @@
 	            				onchange="setFactoryName(this.options[this.selectedIndex].text);"
 	            				listKey="id" listValue="factoryName" 
 	            				headerKey="" headerValue="--请选择--"/>
-	            	<input type="hidden" id="factoryName" name="factoryName" value="${factoryName }"/>
+	            	<input type="hidden" id="factoryName" name="factoryName" value="${contractProduct.factoryName }"/>
 	            </td>
 	            <td class="columnTitle">货号：</td>
-	            <td class="tableContentAuto"><input type="text" name="productNo" value="${productNo }"/></td>
+	            <td class="tableContentAuto"><input type="text" name="productNo" value="${contractProduct.productNo }"/></td>
 	        </tr>		
 	        <tr>
 	            <td class="columnTitle">货物照片：</td>
-	            <td class="tableContent"><input type="text" name="productImage" value="${productImage }"/></td>
+	            <td class="tableContent"><input type="text" name="productImage" value="${contractProduct.productImage }"/></td>
 	        </tr>		
 	        <tr>
 	            <td class="columnTitle">数量：</td>
-	            <td class="tableContent"><input type="text" name="cnumber" value="${cnumber }"/>  
-	                <input type="hidden" name="amount" value="${amount }"/>
+	            <td class="tableContent"><input type="text" name="cnumber" value="${contractProduct.cnumber }"/>  
+	                <input type="hidden" name="amount" value="${contractProduct.amount }"/>
 	            </td>
 	            <td class="columnTitle">包装单位：</td>
 	            <td class="tableContentAuto">
-	            	<input type="radio" name="packingUnit" value="PCS" ${packingUnit=='PCS'?"checked":"" } class="input">只
-	            	<input type="radio" name="packingUnit" value="SETS" ${packingUnit=='SETS'?"checked":"" } class="input">套
+	            	<input type="radio" name="packingUnit" value="PCS" ${contractProduct.packingUnit=='PCS'?"checked":"" } class="input">只
+	            	<input type="radio" name="packingUnit" value="SETS" ${contractProduct.packingUnit=='SETS'?"checked":"" } class="input">套
 	            </td>
 	        </tr>		
 	        <tr>
 	            <td class="columnTitle">装率：</td>
-	            <td class="tableContent"><input type="text" name="loadingRate" value="${loadingRate }"/></td>
+	            <td class="tableContent"><input type="text" name="loadingRate" value="${contractProduct.loadingRate }"/></td>
 	            <td class="columnTitle">箱数：</td>
-	            <td class="tableContent"><input type="text" name="boxNum" value="${boxNum }"/></td>
+	            <td class="tableContent"><input type="text" name="boxNum" value="${contractProduct.boxNum }"/></td>
 	        </tr>		
 	        <tr>
 	            <td class="columnTitle">单价：</td>
-	            <td class="tableContent"><input type="text" name="price" value="${price }"/></td>
+	            <td class="tableContent"><input type="text" name="price" value="${contractProduct.price }"/></td>
 	            <td class="columnTitle">排序号：</td>
-	            <td class="tableContent"><input type="text" name="orderNo" value="${orderNo }"/></td>
+	            <td class="tableContent"><input type="text" name="orderNo" value="${contractProduct.orderNo }"/></td>
 	        </tr>		
 	        <tr>
 	            <td class="columnTitle">货物描述：</td>
-	            <td class="tableContent"><textarea name="productDesc" style="height:150px;">${productDesc }</textarea>
+	            <td class="tableContent"><textarea name="productDesc" style="height:150px;">${contractProduct.productDesc }</textarea>
 	            <td class="columnTitle">要求：</td>
-	            <td class="tableContent"><textarea name="productRequest" style="height:150px;">${productRequest }</textarea>
+	            <td class="tableContent"><textarea name="productRequest" style="height:150px;">${contractProduct.productRequest }</textarea>
 	        </tr>		
 		</table>
 	</div>

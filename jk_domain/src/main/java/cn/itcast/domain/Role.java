@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Role extends BaseEntity{
+	private static final long serialVersionUID = 1L;
 	private String id;
 	private Set<User> users = new HashSet<User>(0);//角色与用户    多对多
 	private Set<Module> modules = new HashSet<Module>(0);//角色与模块    多对多

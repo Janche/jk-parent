@@ -5,6 +5,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class Dept implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private String id;
 	private Set<User> users  = new HashSet<User>(0);//部门与用户    一对多
 	

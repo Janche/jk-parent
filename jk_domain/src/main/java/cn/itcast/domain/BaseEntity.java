@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class BaseEntity implements Serializable {
-
+	private static final long serialVersionUID = 1L;
+	
 	protected String createBy;  //创建者的 id
 	protected String createDept;//创建者所在部门的id
 	protected Date createTime;//创建时间

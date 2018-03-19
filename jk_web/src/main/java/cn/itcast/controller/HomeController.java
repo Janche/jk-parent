@@ -31,20 +31,14 @@ public class HomeController {
 	}
 
 	@RequestMapping("/tomain")
-	public String tomain(String moduleName){
-		//获取request
-		/*String moduleName = (String)request.get("moduleName");
-		this.setModuleName(moduleName);*/
-		//dictModule
+	public String tomain(String moduleName, Model model){
+		model.addAttribute("moduleName", moduleName);
 		return moduleName+"/main";
 	}
 	
 	@RequestMapping("/toleft")
-	public String toleft(String moduleName){
-		//获取request
-		/*String moduleName = (String)request.get("moduleName");
-		
-		this.setModuleName(moduleName);*/
+	public String toleft(String moduleName, Model model){
+		model.addAttribute("moduleName", moduleName);
 		return moduleName+"/left";
 	}
 
