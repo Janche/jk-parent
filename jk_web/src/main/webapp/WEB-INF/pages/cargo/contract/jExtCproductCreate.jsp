@@ -42,7 +42,7 @@
 	        <tr>
 	            <td class="columnTitle">生产厂家：</td>
 	            <td class="tableContent">
-	            <select name="factory.id">
+	            <select name="factory.id" onchange="setFactoryName(this.options[this.selectedIndex].text);">
 	            		<option>--请选择--</option>
 	            		<c:forEach items="${factoryList}" var="factory">
 	            			<option value="${factory.id}">${factory.factoryName}</option>
@@ -112,7 +112,7 @@
 	<tbody class="tableBody" >
 	${page.links }
 	<c:forEach items="${page.results}" var="o" varStatus="status">
-	<tr class="odd" onmouseover="this.className='highlight'" onmouseout="this.className='odd'" >
+	<tr align="left" class="odd" onmouseover="this.className='highlight'" onmouseout="this.className='odd'" >
 		<td><input type="checkbox" name="id" value="${o.id}"/></td>
 		<td>${status.index+1}</td>
 		<td>${o.factoryName}</td>
