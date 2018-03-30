@@ -12,7 +12,7 @@
     <link rel="stylesheet" rev="stylesheet" type="text/css" href="${ctx}/skin/default/css/title.css" media="all"/>
 
 	<script type="text/javascript" src="${ctx}/components/jquery-ui/jquery-1.2.6.js"></script>    	
-	<script language="javascript" src="${ctx}/js/pngfix_map.js"></script>
+	<%--<script language="javascript" src="${ctx}/js/pngfix_map.js"></script>--%>
 	<script language="javascript" src="${ctx}/js/common.js"></script>
     <!-- 调用外部 JavaScript 脚本语言 -->
 	

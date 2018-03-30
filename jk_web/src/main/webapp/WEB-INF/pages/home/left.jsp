@@ -6,8 +6,8 @@
     <link rel="stylesheet" rev="stylesheet" type="text/css" href="${ctx}/skin/default/css/left.css" media="all"/>
 
 	<script language="javascript" src="${ctx}/js/common.js"></script>
-	<script language="javascript" src="${ctx}/js/ajax/setFastMenu.js"></script>
-	<script language="javascript" src="${ctx}/js/pngfix_map.js"></script>
+	<%--<script language="javascript" src="${ctx}/js/ajax/setFastMenu.js"></script>
+	<script language="javascript" src="${ctx}/js/pngfix_map.js"></script>--%>
 	<script type="text/javascript" src="${ctx}/components/jquery-ui/jquery-1.2.6.js"></script>
 	<script type="text/javascript" src="${ctx}/skin/default/js/toggle.js"></script>
  

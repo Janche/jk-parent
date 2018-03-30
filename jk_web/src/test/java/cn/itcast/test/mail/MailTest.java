@@ -34,8 +34,8 @@ public class MailTest {
 			message.setText("Hello world");
 			message.saveChanges();
 			Transport transport = session.getTransport("smtp"); 
-			transport.connect("smtp.qq.com", "2235372507@qq.com", "201215+*"); //发送 
-			transport.sendMessage(message, message.getAllRecipients());
+//			transport.connect("smtp.qq.com", "2235372507@qq.com", "201215+*"); //发送
+//			transport.sendMessage(message, message.getAllRecipients());
 			transport.close();
 
 		}

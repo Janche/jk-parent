@@ -12,7 +12,7 @@ public class Module extends BaseEntity {
 	private static final long serialVersionUID = 1L;
 	private String id;
 	private Set<Role> roles = new HashSet<Role>(0);//模块与角色   多对多
-	private Set<Dictionary> dicts = new HashSet<Dictionary>(0); // 模块与操作权限  多对多
+	/*private Set<Dictionary> dicts = new HashSet<Dictionary>(0); // 模块与操作权限  多对多*/
 	private String parentId;  //父模块的编号
 	private String parentName;//父模块的名称  冗余  用空间换时间
 	private String name;  //模块名
@@ -130,10 +130,10 @@ public class Module extends BaseEntity {
 	public void setOrderNo(Integer orderNo) {
 		this.orderNo = orderNo;
 	}
-	public Set<Dictionary> getDicts() {
+	/*public Set<Dictionary> getDicts() {
 		return dicts;
 	}
 	public void setDicts(Set<Dictionary> dicts) {
 		this.dicts = dicts;
-	}
+	}*/
 }

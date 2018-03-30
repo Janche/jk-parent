@@ -35,11 +35,11 @@
 	        <many-to-many class="Role" column="ROLE_ID" order-by="ORDER_NO"></many-to-many>
 	    </set>
 	    
-	   <!--  private Set<Dictionary> dicts = new HashSet<Dictionary>(0); -->
-	     <set name="dicts" table="DICT_MODULE_P">
+	   	<!--  private Set<Dictionary> dicts = new HashSet<Dictionary>(0); -->
+		<!--<set name="dicts" table="DICT_MODULE_P">
 	        <key column="MODULE_ID"></key>
 	        <many-to-many class="Dictionary" column="DICT_ID"></many-to-many>
-	    </set>
+	    </set>-->
 
 	</class>
 
