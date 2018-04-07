@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,7 +31,7 @@ public class ContractController {
 	 */
 	@RequestMapping("/list")
 	public String list(Page<Contract> page, Model model, HttpServletRequest request) throws Exception {
-		// 此处的page = 可以写出来，也可不写，因为修改的引用 类型的
+
 		page = contractService.findPage("from Contract", page, Contract.class, null);
 		// 设置分页的URL
 		String path = request.getContextPath();
@@ -149,5 +150,22 @@ public class ContractController {
 		String[] ids = contract.getId().split(",");
 		contractService.changeState(0, ids);
 		return "forward:list.action";
+	}
+
+	/**
+	 * 打印
+	 */
+	@RequestMapping("/print")
+	public String print(String id, Contract contract, HttpServletResponse response, HttpServletRequest request) throws Exception {
+		//1.根据购销合同的id,得到购销合同对象
+		contract = contractService.get(Contract.class, contract.getId());
+		System.out.println("id:"+id);
+		//2.指定path
+		String path = request.getRealPath("/");//应用程序的根路径
+
+		ContractPrint cp = new ContractPrint();
+		cp.print(contract, path, response);
+
+		return null;
 	}
 }

@@ -109,7 +109,6 @@
           <element id="library" level="project" name="Maven: org.apache.xmlbeans:xmlbeans:2.6.0" />
           <element id="library" level="project" name="Maven: com.oracle:ojdbc14:10.2.0.4.0" />
           <element id="library" level="project" name="Maven: net.sf.ehcache:ehcache-core:2.6.6" />
-          <element id="library" level="application_server_libraries" name="Tomcat 8.5.29" />
         </element>
       </element>
       <element id="directory" name="META-INF">

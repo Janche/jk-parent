@@ -7,6 +7,7 @@ import java.util.Set;
 
 import javax.annotation.Resource;
 
+import cn.itcast.util.Arith;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -49,7 +50,8 @@ public class ContractProductServiceImpl implements ContractProductService {
 		if (UtilFuns.isEmpty(entity.getId())) {
 			// 新增
 			if (UtilFuns.isNotEmpty(entity.getPrice())) {
-				amount = entity.getPrice() * entity.getCnumber();  // 货物总金额
+				amount = Arith.mul(entity.getPrice(), entity.getCnumber());
+				// amount = entity.getPrice() * entity.getCnumber();  // 货物总金额
 				entity.setAmount(amount);
 			}
 			// 修改购销合同的总金额
@@ -61,7 +63,7 @@ public class ContractProductServiceImpl implements ContractProductService {
 			// 取出货物原有总金额
 			double oldAmount = entity.getAmount();
 			if (UtilFuns.isNotEmpty(entity.getPrice())) {
-				amount = entity.getPrice() * entity.getCnumber(); // 货物总金额
+				amount = Arith.mul(entity.getPrice(), entity.getCnumber()); // 货物总金额
 				entity.setAmount(amount);
 			}
 			// 修改购销合同的总金额

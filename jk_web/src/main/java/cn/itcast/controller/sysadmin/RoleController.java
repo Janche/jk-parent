@@ -320,7 +320,7 @@ public class RoleController {
 		}
 		List<String[]> sp = Encrypt.split(moduleIds);
 		// 打印一下获取的模块和操作数据是否正确
-		System.out.println("moduleIds:" + sp.toString());
+		System.out.println("=========moduleIds:" + sp.toString());
 		StringBuilder sb = new StringBuilder();
 		for (String[] str : sp) {
 			// 拼接module的

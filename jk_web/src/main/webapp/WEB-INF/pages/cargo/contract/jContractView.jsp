@@ -35,7 +35,7 @@
 	            <td class="tableContent">${contract.customName }</td>
 	            <td class="columnTitle">打印版式：</td>
 	            <td class="tableContentAuto">
-	            	${contract.printStyle=='2'?"两款":"一款" } 
+	            	${contract.printStyle=='2' ? "两款":"一款" }
 	            </td>
 	        </tr>		
 	        <tr>

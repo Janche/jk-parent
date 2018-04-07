@@ -25,77 +25,77 @@ public class ExtCproduct extends BaseEntity implements Serializable{
 	private String productRequest;		//要求	
 	private Integer orderNo;		   //排序号	
 
-	
+
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
-	
+
 	public String getFactoryName() {
 		return this.factoryName;
 	}
 	public void setFactoryName(String factoryName) {
 		this.factoryName = factoryName;
-	}	
-	
+	}
+
 	public String getProductNo() {
 		return this.productNo;
 	}
 	public void setProductNo(String productNo) {
 		this.productNo = productNo;
-	}	
-	
+	}
+
 	public String getProductImage() {
 		return this.productImage;
 	}
 	public void setProductImage(String productImage) {
 		this.productImage = productImage;
-	}	
-	
+	}
+
 	public String getProductDesc() {
 		return this.productDesc;
 	}
 	public void setProductDesc(String productDesc) {
 		this.productDesc = productDesc;
-	}	
-	
+	}
+
 	public String getPackingUnit() {
 		return this.packingUnit;
 	}
 	public void setPackingUnit(String packingUnit) {
 		this.packingUnit = packingUnit;
-	}	
-	
+	}
+
 	public Integer getCnumber() {
 		return this.cnumber;
 	}
 	public void setCnumber(Integer cnumber) {
 		this.cnumber = cnumber;
-	}	
-	
+	}
+
 	public Double getPrice() {
 		return this.price;
 	}
 	public void setPrice(Double price) {
 		this.price = price;
-	}	
-	
+	}
+
 	public Double getAmount() {
 		return this.amount;
 	}
 	public void setAmount(Double amount) {
 		this.amount = amount;
-	}	
-	
+	}
+
 	public String getProductRequest() {
 		return this.productRequest;
 	}
 	public void setProductRequest(String productRequest) {
 		this.productRequest = productRequest;
-	}	
-	
+	}
+
 	public Integer getOrderNo() {
 		return this.orderNo;
 	}
@@ -113,5 +113,5 @@ public class ExtCproduct extends BaseEntity implements Serializable{
 	}
 	public void setFactory(Factory factory) {
 		this.factory = factory;
-	}	
+	}
 }

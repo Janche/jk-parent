@@ -71,7 +71,7 @@
 		<td><a href="contractAction_toview?id=${o.id}">${o.contractNo}</a></td>
 		<td>
 		    ${o.contractProducts.size() }
-		    
+		    /
 		    <c:set var="extNo" value="0"></c:set>
 		    <c:forEach items="${o.contractProducts }"  var="cp" >
 		        <c:if test="${cp.extCproducts.size()!=0 }">
