@@ -15,11 +15,11 @@
 <div id="innerMenubar">
   <div id="navMenubar">
 <ul>
-<li id="view"><a href="#" onclick="formSubmit('export/toview','_self');this.blur();">查看</a></li>
-<li id="update"><a href="#" onclick="formSubmit('export/toupdate','_self');this.blur();">修改</a></li>
-<li id="delete"><a href="#" onclick="formSubmit('export/delete','_self');this.blur();">删除</a></li>
-<li id="new"><a href="#" onclick="formSubmit('export/submit','_self');this.blur();">提交</a></li>
-<li id="new"><a href="#" onclick="formSubmit('export/cancel','_self');this.blur();">取消</a></li>
+<li id="view"><a href="#" onclick="formSubmit('${ctx}/export/toview','_self');this.blur();">查看</a></li>
+<li id="update"><a href="#" onclick="formSubmit('${ctx}/export/toupdate','_self');this.blur();">修改</a></li>
+<li id="delete"><a href="#" onclick="formSubmit('${ctx}/export/delete','_self');this.blur();">删除</a></li>
+<li id="new"><a href="#" onclick="formSubmit('${ctx}/export/submit','_self');this.blur();">提交</a></li>
+<li id="new"><a href="#" onclick="formSubmit('${ctx}/export/cancel','_self');this.blur();">取消</a></li>
 </ul>
   </div>
 </div>
@@ -54,9 +54,8 @@
 	</thead>
 	<tbody class="tableBody" >
 ${page.links}
-	
 	<c:forEach items="${page.results}" var="o" varStatus="status">
-	<tr class="odd" onmouseover="this.className='highlight'" onmouseout="this.className='odd'" >
+	<tr align="left" class="odd" onmouseover="this.className='highlight'" onmouseout="this.className='odd'" >
 		<td><input type="checkbox" name="id" value="${o.id}"/></td>
 		<td>${status.index+1}</td>
 		<td>${o.id}</td>

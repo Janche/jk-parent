@@ -33,5 +33,11 @@
 		<mapping resource="cn/itcast/domain/Factory.hbm.xml"></mapping>
 		<mapping resource="cn/itcast/domain/ExtCproduct.hbm.xml"></mapping>
 		
+		<!-- 货运管理  -->
+		<mapping resource="cn/itcast/domain/Export.hbm.xml"></mapping>
+		<mapping resource="cn/itcast/domain/ExportProduct.hbm.xml"></mapping>
+		<mapping resource="cn/itcast/domain/ExtEproduct.hbm.xml"></mapping>
+		
+		
 	</session-factory>
 	</hibernate-configuration>

@@ -43,7 +43,7 @@ public class ExportController {
         contractService.findPage(hql, page, Contract.class, null);
         //给page设置url
         String path = request.getContextPath();
-        page.setUrl(path+"export/contractList.action");
+        page.setUrl(path+"/export/contractList.action");
         model.addAttribute("page", page);
         return "cargo/export/jContractList";
     }
@@ -55,13 +55,8 @@ public class ExportController {
     @RequestMapping("/list")
     public String list(Page<Export> page, Model model, HttpSession session, HttpServletRequest request) throws Exception{
         //细粒度控制,根据不同的登录用户的级别来发送不同的hql语句
-        System.out.println("111111111111111111111111"+page);
-
-//        User user = (User) request.getAttribute("user");
         User user = (User) session.getAttribute(SysConstant.CURRENT_USER_INFO);
-        System.out.println(user.toString());
-        String hql = "from Export  where 1=1";
-        System.out.println("user:-----------"+user);
+        String hql = "from Export  where 1=1 ";
         Integer degree = user.getUserinfo().getDegree();
         if (4 == degree) {
             hql+="and createBy = '"+user.getId()+"'";
@@ -75,14 +70,14 @@ public class ExportController {
         }else if (0 == degree) {
             //总经理就是能查看所有人的因此可以不用写啥条件
         }
+//        System.out.println("hql:"+ hql);
         //方法中会动态的改变page
         exportService.findPage(hql, page, Export.class,null);
         //设置分页的url
         String path = request.getContextPath();
-        page.setUrl(path+"contract/list.action");
+        page.setUrl(path+"/export/list.action");
         // page.setUrl("contract/list");
         model.addAttribute("page", page);
-        System.out.println("====================="+page);
         return "cargo/export/jExportList";
     }
     /**
@@ -109,7 +104,7 @@ public class ExportController {
     @RequestMapping("/insert")
     public String insert(HttpSession session, Export export) throws Exception{
         //通过session来获取到当前的登录的用户
-        User user = (User) session.getAttribute("user");
+        User user = (User) session.getAttribute(SysConstant.CURRENT_USER_INFO);
         //获取当前用户的id和部门id分别设置进入新建的报运单中
         export.setCreateBy(user.getId());
         export.setCreateDept(user.getDept().getId());
@@ -127,7 +122,7 @@ public class ExportController {
     public String toupdate(Export export, Model model) throws Exception{
         //获取到当前的对象
         Export obj = exportService.get(Export.class, export.getId());
-        model.addAttribute("obj", obj);
+        model.addAttribute("export", obj);
 
         //对动态的数据进行设置和编写
         Set<ExportProduct> exportProducts = obj.getExportProducts();

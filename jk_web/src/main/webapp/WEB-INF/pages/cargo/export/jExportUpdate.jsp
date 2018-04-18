@@ -72,14 +72,14 @@
 
 <body>
 <form name="icform" method="post">
-	<input type="hidden" name="id" value="${id}"/>
+	<input type="hidden" name="id" value="${export.id}"/>
 
 <div id="menubar">
 <div id="middleMenubar">
 <div id="innerMenubar">
   <div id="navMenubar">
 <ul>
-<li id="save"><a href="#" onclick="formSubmit('exportAction_update','_self');this.blur();">保存</a></li>
+<li id="save"><a href="#" onclick="formSubmit('${ctx}/export/update','_self');this.blur();">保存</a></li>
 <li id="back"><a href="#" onclick="history.go(-1);">返回</a></li>
 </ul>
   </div>
@@ -98,37 +98,37 @@
 		<table class="commonTable" cellspacing="1">
 	        <tr>
 	            <td class="columnTitle">报运号：</td>
-	            <td class="tableContent">${customerContract}</td>
+	            <td class="tableContent">${export.customerContract}</td>
 	            <td class="columnTitle">制单日期：</td>
 	            <td class="tableContent">
 					<input type="text" style="width:90px;" name="inputDate"
-	            	 value="<fmt:formatDate value="${inputDate}" pattern="yyyy-MM-dd"/>"
+	            	 value="<fmt:formatDate value="${export.inputDate}" pattern="yyyy-MM-dd"/>"
 	             	onclick="WdatePicker({el:this,isShowOthers:true,dateFmt:'yyyy-MM-dd'});"/>
 				</td>
 	        </tr>	
 	        <tr>
 	            <td class="columnTitle">信用证号</td>
-	            <td class="tableContent"><input type="text" name="lcno" value="${lcno}"/></td>
+	            <td class="tableContent"><input type="text" name="lcno" value="${export.lcno}"/></td>
 	            <td class="columnTitle">收货人及地址：</td>
-	            <td class="tableContent"><input type="text" name="consignee" value="${consignee}"/></td>
+	            <td class="tableContent"><input type="text" name="consignee" value="${export.consignee}"/></td>
 	        </tr>	
 	        <tr>
 	            <td class="columnTitle">装运港：</td>
-	            <td class="tableContent"><input type="text" name="shipmentPort" value="${shipmentPort}"/></td>
+	            <td class="tableContent"><input type="text" name="shipmentPort" value="${export.shipmentPort}"/></td>
 	            <td class="columnTitle">目的港：</td>
-	            <td class="tableContent"><input type="text" name="destinationPort" value="${destinationPort}"/></td>
+	            <td class="tableContent"><input type="text" name="destinationPort" value="${export.destinationPort}"/></td>
 	        </tr>	
 	        <tr>
 	            <td class="columnTitle">运输方式：</td>
-	            <td class="tableContent"><input type="text" name="transportMode" value="${transportMode}"/></td>
+	            <td class="tableContent"><input type="text" name="transportMode" value="${export.transportMode}"/></td>
 	            <td class="columnTitle">价格条件：</td>
-	            <td class="tableContent"><input type="text" name="priceCondition" value="${priceCondition}"/></td>
+	            <td class="tableContent"><input type="text" name="priceCondition" value="${export.priceCondition}"/></td>
 	        </tr>
 	        <tr>
 	            <td class="columnTitle">唛头：</td>
-	            <td class="tableContent"><textarea name="marks" style="height:120px;">${marks}</textarea></td>
+	            <td class="tableContent"><textarea name="marks" style="height:120px;">${export.marks}</textarea></td>
 	            <td class="columnTitle">备注：</td>
-	            <td class="tableContent"><textarea name="remark" style="height:120px;">${remark}</textarea></td>
+	            <td class="tableContent"><textarea name="remark" style="height:120px;">${export.remark}</textarea></td>
 	        </tr>
 		</table>
 	</div>

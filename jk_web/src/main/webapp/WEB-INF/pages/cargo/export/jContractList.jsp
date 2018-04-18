@@ -14,9 +14,9 @@
 <div id="innerMenubar">
   <div id="navMenubar">
 <ul>
-<li id="view"><a href="#" onclick="formSubmit('${ctx}/cargo/contract/toview','_self');this.blur();">查看</a></li>
-<li id="print"><a href="#" onclick="formSubmit('${ctx}/cargo/contract/print','_self');this.blur();">打印</a></li>
-<li id="new"><a href="#" onclick="formSubmit('${ctx}/cargo/export/tocreate','_self');this.blur();">报运</a></li>
+<li id="view"><a href="#" onclick="formSubmit('${ctx}/contract/toview','_self');this.blur();">查看</a></li>
+<li id="print"><a href="#" onclick="formSubmit('${ctx}/contract/print','_self');this.blur();">打印</a></li>
+<li id="new"><a href="#" onclick="formSubmit('${ctx}/export/tocreate','_self');this.blur();">报运</a></li>
 </ul>
   </div>
 </div>
@@ -51,7 +51,7 @@
 	<tbody class="tableBody" >
 	${page.links }
 	<c:forEach items="${page.results}" var="o" varStatus="status">
-	<tr class="odd" onmouseover="this.className='highlight'" onmouseout="this.className='odd'" >
+	<tr align="left" class="odd" onmouseover="this.className='highlight'" onmouseout="this.className='odd'" >
 		<td><input type="checkbox" name="id" value="${o.id}"/></td>
 		<td>${status.index+1}</td>
 		<td>${o.customName}</td>

@@ -26,7 +26,10 @@
 		<property name="grossWeights" column="GROSS_WEIGHTS" type="double"/>
 		<property name="measurements" column="MEASUREMENTS" type="double"/>
 		<property name="state" column="STATE" type="integer"/>
-
+		
+		<property name="createBy" column="CREATE_BY"/>
+		<property name="createDept" column="CREATE_DEPT"/>
+		<property name="createTime" column="CREATE_TIME"/>
 		
 		<!-- 3.配置对象关联关系； -->
 		<set name="exportProducts" cascade="all" inverse="true" order-by="ORDER_NO">
