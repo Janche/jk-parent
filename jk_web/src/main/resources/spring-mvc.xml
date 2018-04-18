@@ -28,4 +28,19 @@
 		<property name="suffix" value=".jsp"></property>
 	</bean>
 
+	<!-- springmvc提供的简单异常处理器 -->
+	<!--<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">-->
+		<!--&lt;!&ndash; 定义默认的异常处理页面 &ndash;&gt;-->
+		<!--<property name="defaultErrorView" value="/WEB-INF/pages/error.jsp"/>-->
+		<!--&lt;!&ndash; 定义异常处理页面用来获取异常信息的变量名，也可不定义，默认名为exception &ndash;&gt;-->
+		<!--<property name="exceptionAttribute" value="ex"/>-->
+		<!--&lt;!&ndash; 定义需要特殊处理的异常，这是重要点 &ndash;&gt;-->
+		<!--<property name="exceptionMappings">-->
+			<!--<props>-->
+				<!--<prop key="cn.itcast.exception.SysException">/WEB-INF/pages/error.jsp</prop>-->
+			<!--</props>-->
+			<!--&lt;!&ndash; 还可以定义其他的自定义异常 &ndash;&gt;-->
+		<!--</property>-->
+	<!--</bean>-->
+
 </beans>  

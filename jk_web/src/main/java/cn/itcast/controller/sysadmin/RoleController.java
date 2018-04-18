@@ -291,12 +291,12 @@ public class RoleController {
 			}
 		}
 		sb.append("]");
-		System.out.println(sb.toString());
+		System.out.println("json数据:"+sb.toString());
 		// 获取response对象
+
 		response.setContentType("application/json;charset=utf-8");
 		response.setHeader("Cache-control", "no-cache");
 		response.getWriter().write(sb.toString());
-
 		return null;
 
 	}

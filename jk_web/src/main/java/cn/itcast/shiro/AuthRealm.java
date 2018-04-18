@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import cn.itcast.service.RoleService;
 import org.apache.log4j.Logger;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -26,6 +25,7 @@ import cn.itcast.domain.User;
 import cn.itcast.service.DictAndModuleService;
 import cn.itcast.service.DictService;
 import cn.itcast.service.UserService;
+
 public class AuthRealm extends AuthorizingRealm{
 	private static Logger log = Logger.getLogger(AuthRealm.class);
 	@Autowired
@@ -46,11 +46,9 @@ public class AuthRealm extends AuthorizingRealm{
 		User user = (User) principals.fromRealm(this.getName()).iterator().next();
 		List<String> list = new ArrayList<>();
 		Set<Role> roles = user.getRoles();
-		// System.out.println("roles:-----"+roles.toString());
-		// 遍历每个角色
+		// 	遍历每个角色
 		for (Role role : roles) {
 			Set<Module> modules = role.getModules();
-			// System.out.println("modules:=========="+modules.toString());
 			for (Module module : modules) {
 				list.add(module.getName());
 				// 把每个模块的操作权限一起赋权限给用户

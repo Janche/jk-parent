@@ -1,27 +1,12 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="jk_web:war exploded">
-    <output-path>$PROJECT_DIR$/jk_web/target/jk_web</output-path>
+    <output-path>$PROJECT_DIR$/out/artifacts/jk_web_war_exploded</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="jk_web" />
         </element>
         <element id="directory" name="lib">
-          <element id="archive" name="jk_service-0.0.1-SNAPSHOT.jar">
-            <element id="module-output" name="jk_service" />
-          </element>
-          <element id="archive" name="jk_dao-0.0.1-SNAPSHOT.jar">
-            <element id="module-output" name="jk_dao" />
-          </element>
-          <element id="archive" name="jk_utils-0.0.1-SNAPSHOT.jar">
-            <element id="module-output" name="jk_utils" />
-          </element>
-          <element id="archive" name="jk_domain-0.0.1-SNAPSHOT.jar">
-            <element id="module-output" name="jk_domain" />
-          </element>
-          <element id="archive" name="jk_exception-0.0.1-SNAPSHOT.jar">
-            <element id="module-output" name="jk_exception" />
-          </element>
           <element id="library" level="project" name="Maven: org.springframework:spring-test:4.2.4.RELEASE" />
           <element id="library" level="project" name="Maven: org.apache.shiro:shiro-all:1.2.3" />
           <element id="library" level="project" name="Maven: org.apache.shiro:shiro-guice:1.2.3" />
@@ -110,9 +95,6 @@
           <element id="library" level="project" name="Maven: com.oracle:ojdbc14:10.2.0.4.0" />
           <element id="library" level="project" name="Maven: net.sf.ehcache:ehcache-core:2.6.6" />
         </element>
-      </element>
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/jk_web/target/jk_web/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="jk_web/web/Web" />
     </root>
